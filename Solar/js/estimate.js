@@ -1,32 +1,68 @@
-document.addEventListener("DOMContentLoaded", () => {
-    function calculateSolarPower() {
-        const area = parseFloat(document.getElementById('solarArea').value);
-        const efficiency = parseFloat(document.getElementById('solarEfficiency').value) / 100;
-        const sunHours = parseFloat(document.getElementById('sunHours').value);
+document.addEventListener('DOMContentLoaded', function () {
+    const addressInput = document.getElementById('addressInput');
+    const calculateSolarButton = document.getElementById('calculateSolar');
 
-        if (isNaN(area) || isNaN(efficiency) || isNaN(sunHours)) {
-            alert("Please enter valid numbers for Solar Power Calculation.");
+    // Base data for specific addresses
+    const baseAddressData = {
+        "13802 Heritage Club Drive": {
+            leasingSavings: 6000,
+            cashPurchaseSavings: 18000,
+            financedPurchaseSavings: 15000,
+            outOfPocketCost: 2500,
+            upfrontCost: 21000,
+            maxArrayAreaMeters2: 120,
+            areaMeters2: [50, 40, 30],
+            annualSavings: 1200,
+            paybackPeriod: 10,
+            lifetimeSavings: 24000,
+            CO2_offset: 5,
+            equivalentTreesPlanted: 50
+        },
+        "15501 Bruce B Downs Blvd": {
+            leasingSavings: 5500,
+            cashPurchaseSavings: 17000,
+            financedPurchaseSavings: 14000,
+            outOfPocketCost: 2800,
+            upfrontCost: 22000,
+            maxArrayAreaMeters2: 115,
+            areaMeters2: [45, 35, 25],
+            annualSavings: 1300,
+            paybackPeriod: 11,
+            lifetimeSavings: 26000,
+            CO2_offset: 6,
+            equivalentTreesPlanted: 55
+        }
+    };
+
+    calculateSolarButton.addEventListener('click', function () {
+        const enteredAddress = addressInput.value.trim();
+
+        if (!enteredAddress) {
+            alert("Please enter an address.");
             return;
         }
 
-        const powerOutput = area * efficiency * sunHours;
-        document.getElementById('solarPowerResult').textContent = `Estimated Solar Power Output: ${powerOutput.toFixed(2)} Watts`;
-    }
+        // Retrieve metrics for the entered address or default metrics if the address is unknown
+        const data = baseAddressData[enteredAddress] || {
+            leasingSavings: 5000,
+            cashPurchaseSavings: 15000,
+            financedPurchaseSavings: 13000,
+            outOfPocketCost: 2000,
+            upfrontCost: 19000,
+            maxArrayAreaMeters2: 100,
+            areaMeters2: [40, 30, 20],
+            annualSavings: 1000,
+            paybackPeriod: 12,
+            lifetimeSavings: 22000,
+            CO2_offset: 4.5,
+            equivalentTreesPlanted: 45
+        };
 
-    function calculateOffGridPower() {
-        const dailyConsumption = parseFloat(document.getElementById('dailyConsumption').value);
-        const daysOfAutonomy = parseFloat(document.getElementById('daysOfAutonomy').value);
-        const inverterEfficiency = parseFloat(document.getElementById('inverterEfficiency').value) / 100;
+        // Store address and metrics data in sessionStorage
+        sessionStorage.setItem('selectedAddress', enteredAddress);
+        sessionStorage.setItem('metricsData', JSON.stringify(data));
 
-        if (isNaN(dailyConsumption) || isNaN(daysOfAutonomy) || isNaN(inverterEfficiency)) {
-            alert("Please enter valid numbers for Off-Grid Power Calculation.");
-            return;
-        }
-
-        const batteryCapacity = (dailyConsumption * daysOfAutonomy) / inverterEfficiency;
-        document.getElementById('offGridPowerResult').textContent = `Required Battery Capacity: ${batteryCapacity.toFixed(2)} kWh`;
-    }
-
-    document.getElementById('calculateSolar').addEventListener('click', calculateSolarPower);
-    document.getElementById('calculateOffGrid').addEventListener('click', calculateOffGridPower);
+        // Navigate to results page
+        window.location.href = 'results.html';
+    });
 });

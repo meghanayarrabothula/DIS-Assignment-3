@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Solar Power Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Solar Solutions</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="estimate.html">Solar Estimate</a>
+            <a href="contact.html">Contact</a>
+            <a href="analytics.html">Analytics</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="analytics-section">
+            <h2>1. Number of Installations by City</h2>
+            <canvas id="addressComponentsByLocationChart"></canvas>
+
+            <h2>2. Monthly Installation Capacity Trend</h2>
+            <canvas id="monthlyInstallationTrendChart"></canvas>
+
+            <h2>3. Installation Capacity (kW) by City</h2>
+            <canvas id="capacityByLocationChart"></canvas>
+
+            <h2>4. Distribution of Installation Types</h2>
+            <canvas id="installationTypesDistributionChart"></canvas>
+
+            <h2>5. Latitude vs. Longitude for Solar Installations</h2>
+            <canvas id="latitudeLongitudeChart"></canvas>
+        </section>
+
+        <!-- CRUD Section for managing installations -->
+        <section class="crud-section">
+            <h2>Manage Installations</h2>
+            <form id="installationForm">
+                <label for="city">City:</label>
+                <select id="city" required>
+                    <option value="Tampa">Tampa</option>
+                    <option value="Orlando">Orlando</option>
+                    <option value="Fort Myers">Fort Myers</option>
+                    <option value="Miami">Miami</option>
+                    <option value="Tallahassee">Tallahassee</option>
+                    <option value="Jacksonville">Jacksonville</option>
+                    <option value="St. Petersburg">St. Petersburg</option>
+                    <option value="Boca Raton">Boca Raton</option>
+                    <option value="Lakeland">Lakeland</option>
+                </select>
+
+                <label for="capacity">Capacity (kW):</label>
+                <input type="number" id="capacity" required>
+
+                <label for="type">Type:</label>
+                <select id="type">
+                    <option value="Commercial">Commercial</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Industrial">Industrial</option>
+                </select>
+
+                <button type="button" onclick="addOrUpdateInstallation()">Add/Update Installation</button>
+            </form>
+
+            <h3>Installation Records</h3>
+            <ul id="installationList"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Solar Solutions. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

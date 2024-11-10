@@ -1,0 +1,203 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* HTML and Body Full Height Setup */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Content Container */
+main {
+    flex: 1; /* Takes up available space to push the footer down */
+}
+
+/* Header Styling */
+header {
+    background-color: #004f73;
+    color: white;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-left: 20px;
+    color: white;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffbb33;
+}
+
+/* Main Banner for Home Page */
+.banner {
+    background: url('../images/solar-background.jpg') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.banner h2 {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #004f73;
+    padding: 20px 30px;
+    border-radius: 8px;
+    font-size: 24px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #004f73;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    /* No margin-top to avoid forcing footer at the bottom; it will be pushed down by flex on short pages */
+}
+
+/* Section Styling */
+section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Form Styling */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #004f73;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #ffbb33;
+}
+
+/* Chart Containers */
+canvas {
+    margin: 20px 0;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 18px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .banner h2 {
+        font-size: 20px;
+    }
+}
+/* 
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Analytics section styling for 3x2 grid layout */
+.analytics-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Each chart in the 3x2 grid pattern */
+.analytics-section canvas {
+    width: 45%; /* Each chart takes about half of the container's width */
+    max-width: 600px; /* Max width to prevent excessive scaling on large screens */
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Glossy effect for all charts */
+canvas {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glossy overlay effect */
+canvas::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    transform: rotate(25deg);
+    pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .analytics-section canvas {
+        width: 90%; /* Make charts full-width on smaller screens */
+    }
+}
+

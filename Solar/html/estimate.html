@@ -15,7 +15,6 @@
             <a href="services.html">Services</a>
             <a href="estimate.html">Solar Estimate</a>
             <a href="contact.html">Contact</a>
-            <a href="analytics.html">Analytics</a>
         </nav>
     </header>
 
@@ -23,32 +22,9 @@
         <section id="estimate">
             <h2>Solar Power Estimation</h2>
             <form id="solarForm">
-                <label for="solarArea">Area (m²):</label>
-                <input type="number" id="solarArea" required>
-
-                <label for="solarEfficiency">Efficiency (%) :</label>
-                <input type="number" id="solarEfficiency" required>
-
-                <label for="sunHours">Average Sunlight Hours per Day:</label>
-                <input type="number" id="sunHours" required>
-
+                <label for="addressInput">Enter Address:</label>
+                <input type="text" id="addressInput" placeholder="e.g., 123 Solar Ave, Sunnytown" required>
                 <button type="button" id="calculateSolar">Calculate Solar Power</button>
-                <p id="solarPowerResult"></p>
-            </form>
-
-            <h2>Off-Grid Power Estimation</h2>
-            <form id="offGridForm">
-                <label for="dailyConsumption">Daily Power Consumption (kWh):</label>
-                <input type="number" id="dailyConsumption" required>
-
-                <label for="daysOfAutonomy">Days of Autonomy:</label>
-                <input type="number" id="daysOfAutonomy" required>
-
-                <label for="inverterEfficiency">Inverter Efficiency (%):</label>
-                <input type="number" id="inverterEfficiency" required>
-
-                <button type="button" id="calculateOffGrid">Calculate Off-Grid Power</button>
-                <p id="offGridPowerResult"></p>
             </form>
         </section>
     </main>
@@ -57,6 +33,6 @@
         <p>&copy; 2023 Solar Solutions. All rights reserved.</p>
     </footer>
 
-    <script src="../js/estimate.js"></script> <!-- Path to JS file for calculations -->
+    <script src="../js/estimate.js"></script>
 </body>
 </html>

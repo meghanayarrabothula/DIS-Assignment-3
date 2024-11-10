@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Solar Solutions</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Ensure path to CSS is correct -->
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
@@ -15,16 +15,25 @@
             <a href="services.html">Services</a>
             <a href="estimate.html">Solar Estimate</a>
             <a href="contact.html">Contact</a>
-            <a href="analytics.html">Analytics</a>
         </nav>
     </header>
 
     <main>
         <section class="contact-section">
             <h1>Contact Us</h1>
-            <p>If you have any questions or feedback, feel free to reach out using the form below.</p>
+            <p>If you have any questions, please reach out using the contact information below.</p>
 
-            <form action="submit_feedback.php" method="POST" class="feedback-form">
+            <h2>Contact Emails</h2>
+            <ul>
+                <li>General Inquiries: <a href="mailto:info@solarsolutions.com">info@solarsolutions.com</a></li>
+                <li>Support: <a href="mailto:support@solarsolutions.com">support@solarsolutions.com</a></li>
+                <li>Sales: <a href="mailto:sales@solarsolutions.com">sales@solarsolutions.com</a></li>
+            </ul>
+
+            <h2>Leave Feedback</h2>
+            <p>We value your feedback! Please leave your comments below.</p>
+
+            <form id="feedbackForm" class="feedback-form">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName" required>
 
@@ -37,8 +46,15 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
 
-                <button type="submit" class="submit-btn">Submit</button>
+                <button type="button" id="submitFeedback" class="submit-btn">Submit</button>
             </form>
+
+            <section id="feedbackDisplay" class="feedback-display">
+                <h2>Feedback Received</h2>
+                <ul id="feedbackList">
+                    <!-- User feedback will display here -->
+                </ul>
+            </section>
         </section>
     </main>
 
@@ -46,6 +62,27 @@
         <p>&copy; 2023 Solar Solutions. All rights reserved.</p>
     </footer>
 
-    <script src="../js/script.js"></script> <!-- Optional: link to custom JS file if needed -->
+    <script>
+        document.getElementById("submitFeedback").addEventListener("click", function() {
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (firstName && lastName && email && message) {
+                const feedbackList = document.getElementById("feedbackList");
+                const feedbackItem = document.createElement("li");
+                feedbackItem.innerHTML = `<strong>${firstName} ${lastName}</strong> (${email}):<br>${message}`;
+                
+                // Add the new feedback item to the feedback list
+                feedbackList.appendChild(feedbackItem);
+
+                // Clear the form fields
+                document.getElementById("feedbackForm").reset();
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+    </script>
 </body>
 </html>

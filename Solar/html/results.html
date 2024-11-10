@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Estimate Results | Solar Solutions</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js library -->
+</head>
+<body>
+    <header>
+        <h1>Solar Solutions - Estimate Results</h1>
+    </header>
+
+    <main>
+        <!-- Back to Estimate Button -->
+        <button onclick="goToEstimatePage()" id="backToEstimateButton">Back to Estimate</button>
+
+        <section id="results">
+            <label for="addressSelect">Select Address:</label>
+            <select id="addressSelect">
+                <option value="13802 Heritage Club Drive">13802 Heritage Club Drive</option>
+                <option value="15501 Bruce B Downs Blvd">15501 Bruce B Downs Blvd</option>
+            </select>
+
+            <h2>Adjust Electricity Bill</h2>
+            <label for="electricityBill">Electricity Bill ($):</label>
+            <input type="range" id="electricityBill" min="0" max="1000" value="100" oninput="updateBillDisplay()">
+            <span id="billDisplay">$100</span>
+
+            <h3>Financial Metrics</h3>
+            <ul id="metricsList"></ul>
+
+            <!-- Save Quote Button -->
+            <button id="saveQuoteButton">Save Quote</button>
+
+            <h2>Leasing vs. Cash Purchase vs. Financed Purchase Costs</h2>
+            <canvas id="purchaseOptionsChart"></canvas>
+
+            <h2>Monthly Cost Savings Chart</h2>
+            <canvas id="monthlySavingsChart"></canvas>
+
+            <h2>Roof Usable Area vs. Maximum Array Area</h2>
+            <canvas id="roofAreaChart"></canvas>
+
+            <!-- Saved Quotes Section -->
+            <section id="savedQuotesSection">
+                <h2>Saved Quotes</h2>
+                <ul id="savedQuotesList"></ul>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Solar Solutions. All rights reserved.</p>
+    </footer>
+
+    <!-- Include JavaScript files -->
+    <script>
+        // Function to navigate back to the estimate page
+        function goToEstimatePage() {
+            window.location.href = 'estimate.html';
+        }
+    </script>
+    <script src="../js/results.js"></script>
+</body>
+</html>

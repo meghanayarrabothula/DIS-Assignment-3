@@ -1,40 +1,36 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const savedQuotesList = document.getElementById('savedQuotesList');
-    let savedQuotes = JSON.parse(localStorage.getItem('savedQuotes')) || [];
+function saveQuote() {
+    const address = document.getElementById('addressSelect').value;
+    const billValue = parseFloat(document.getElementById('electricityBill').value);
+    const metricsList = document.getElementById('metricsList').innerHTML;
 
-    function displaySavedQuotes() {
-        savedQuotesList.innerHTML = '';
-        savedQuotes.forEach(quote => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <strong>${quote.address}</strong> - Bill: $${quote.billValue} 
-                <button onclick="editQuote(${quote.id})">Edit</button>
-                <button onclick="deleteQuote(${quote.id})">Delete</button>
-                <ul>
-                    <li>Leasing Savings: $${quote.metrics.leasingSavings.toFixed(2)}</li>
-                    <li>Cash Purchase Savings: $${quote.metrics.cashPurchaseSavings.toFixed(2)}</li>
-                    <li>Financed Purchase Savings: $${quote.metrics.financedPurchaseSavings.toFixed(2)}</li>
-                    <li>Out-of-Pocket Cost: $${quote.metrics.outOfPocketCost.toFixed(2)}</li>
-                    <li>Upfront Cost: $${quote.metrics.upfrontCost.toFixed(2)}</li>
-                </ul>
-            `;
-            savedQuotesList.appendChild(li);
-        });
-    }
+    const savedQuoteHTML = `
+        <h2>Saved Quotes</h2>
+        <ul id="savedQuotesList">
+            <li><strong>${address}</strong> - Bill: $${billValue}
+                <select id="optionSelect">
+                    <option value="Lease">Lease</option>
+                    <option value="Buy">Buy</option>
+                    <option value="Finance">Finance</option>
+                </select>
+                <button onclick="editQuote()">Edit</button>
+                <button onclick="deleteQuote()">Delete</button>
+                <button onclick="placeOrder()">Place Order</button>
+                <ul>${metricsList}</ul>
+            </li>
+        </ul>
+    `;
 
-    window.editQuote = function (id) {
-        const quote = savedQuotes.find(q => q.id === id);
-        if (quote) {
-            localStorage.setItem('editQuote', JSON.stringify(quote));
-            window.location.href = 'results.html';
-        }
-    };
+    document.getElementById('estimateSection').innerHTML += savedQuoteHTML;
+}
 
-    window.deleteQuote = function (id) {
-        savedQuotes = savedQuotes.filter(q => q.id !== id);
-        localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
-        displaySavedQuotes();
-    };
+function editQuote() {
+    alert("Edit functionality to be implemented");
+}
 
-    displaySavedQuotes();
-});
+function deleteQuote() {
+    document.getElementById('savedQuotesList').innerHTML = ''; // Clears the saved quote display
+}
+
+function placeOrder() {
+    alert("Order placed successfully.");
+}

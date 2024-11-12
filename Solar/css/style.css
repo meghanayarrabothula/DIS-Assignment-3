@@ -742,6 +742,30 @@ button.hover-btn:hover {
     color: #333;
     margin-left: 10px;
 }
+/* Git Logs Section */
+.git-logs {
+    margin-top: 40px;
+    text-align: center;
+}
 
+.git-logs h3 {
+    font-size: 24px;
+    color: #004f73;
+    margin-bottom: 15px;
+}
+
+.git-log-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.git-log {
+    width: 100%;
+    max-width: 1000px; /* Adjust as needed */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 

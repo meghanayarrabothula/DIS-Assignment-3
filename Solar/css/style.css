@@ -24,6 +24,57 @@ body {
     position: relative;
 }
 
+/* Services Section Styling */
+.services-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    /* Removed the background color from .services-section */
+}
+
+.services-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #004f73;
+    display: inline-block; /* Ensures border only wraps the text, not the whole width */
+    padding: 5px 15px; /* Adds some space inside the border around the text */
+    border-radius: 8px; /* Adds slight rounding to the border */
+    background: whitesmoke; /* Ensures no background color */
+}
+
+/* Container for Services - Flexbox with Two Rows and Two Columns */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.service {
+    flex: 1 1 45%;
+    max-width: 500px;
+    padding: 20px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.9); /* Background color only for individual services */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service {
+        flex: 1 1 100%;
+        max-width: 90%;
+    }
+}
+
 /* Optional: Semi-transparent overlay for readability */
 body::before {
     content: "";
@@ -414,4 +465,283 @@ canvas::before {
         width: 90%; /* Make charts full-width on smaller screens */
     }
 }
+
+
+/* General About Us Section Styling */
+.about-section {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.about-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #004f73;
+}
+
+/* Team Container */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-member {
+    flex: 1 1 250px;
+    max-width: 250px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.team-member h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #004f73;
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Data Model Section */
+.data-model {
+    margin-top: 40px;
+}
+
+.data-model h3 {
+    font-size: 24px;
+    color: #004f73;
+    margin-bottom: 15px;
+}
+
+.data-model img {
+    width: 100%;
+    max-width: 1000px; /* Adjust as needed */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+/* GitHub Link */
+.github-link {
+    margin-top: 20px;
+}
+
+.github-link a {
+    display: inline-block;
+    background-color: whitesmoke;
+    color: #004f73;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.github-link a:hover {
+    background-color: grey;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .team-member {
+        max-width: 90%;
+    }
+
+    .data-model img {
+        width: 90%;
+    }
+}
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: rgba;
+    padding: 15px;
+    text-align: center;
+    color: #ffffff;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+header nav a {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styling */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styling */
+#estimateSection, #savedQuotesSection {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Title Styling */
+h2, h3 {
+    color: #0056b3;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Styling for Financial Metrics */
+#metricsList {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+#metricsList li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* Styling for Buttons */
+button.hover-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button.hover-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for Saved Quotes List */
+#savedQuotesList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#savedQuotesList li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for Each Saved Quote Item */
+#savedQuotesList li strong {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#savedQuotesList li select, #savedQuotesList li button {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+#savedQuotesList li button {
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effects for Saved Quotes Buttons */
+#savedQuotesList li button[data-action="edit"] {
+    background-color: #ffc107;
+    color: #333;
+}
+
+#savedQuotesList li button[data-action="edit"]:hover {
+    background-color: #e0a800;
+}
+
+#savedQuotesList li button[data-action="delete"] {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+#savedQuotesList li button[data-action="delete"]:hover {
+    background-color: #c82333;
+}
+
+#savedQuotesList li button[data-action="placeOrder"] {
+    background-color: #28a745;
+    color: #fff;
+}
+
+#savedQuotesList li button[data-action="placeOrder"]:hover {
+    background-color: #218838;
+}
+
+/* Styling for Electricity Bill Slider and Display */
+#electricityBill {
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#billDisplay {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin-left: 10px;
+}
+
+
 

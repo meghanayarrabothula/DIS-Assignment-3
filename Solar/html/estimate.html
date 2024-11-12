@@ -11,10 +11,10 @@
         <h1>Solar Solutions</h1>
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
+            <a href="aboutus.html">About Us</a>
             <a href="estimate.html">Solar Estimate</a>
-            <a href="contact.html">Contact</a>
+            <a href="analytics.html">Estimate Analytics</a>
+            <a href="contactus.html">Feedback</a>
         </nav>
     </header>
 
@@ -26,11 +26,17 @@
                 <input type="text" id="addressInput" placeholder="e.g., 123 Solar Ave, Sunnytown" required>
                 <button type="button" id="calculateSolar">Calculate Solar Power</button>
             </form>
+            <section id="estimateSection"></section> <!-- Section for displaying estimate information -->
+        </section>
+
+        <section id="savedQuotesSection">
+            <h2>Saved Quotes</h2>
+            <ul id="savedQuotesList"></ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Solar Solutions. All rights reserved.</p>
+        <p>&copy; 2024 Solar Solutions. All rights reserved.</p>
     </footer>
 
     <script src="../js/estimate.js"></script>
